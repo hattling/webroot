@@ -1,5 +1,5 @@
 {
-  "installCommand": "node -v && npm -v && corepack use pnpm@10.33.0 && pnpm -v && pnpm --prefix chat install",
+  "installCommand": "node -v && npm -v && corepack enable && corepack use pnpm@10.33.0 && pnpm -v && pnpm config get registry && pnpm --prefix chat install",
   "buildCommand": "pnpm --prefix chat build",
   "outputDirectory": "chat/.next",
   "framework": "nextjs"
