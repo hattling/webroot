@@ -1,6 +1,6 @@
- { 
-  
-  "installCommand": "node -v && npm -v && which pnpm && pnpm -v && corepack enable && corepack use pnpm@10.33.0 && which pnpm && pnpm -v && corepack pnpm -v && corepack pnpm config get registry && corepack pnpm --prefix chat install",
-  "buildCommand": "corepack pnpm --prefix chat build",
-  "outputDirectory": "chat/.next"
- }
+{
+  "framework": "nextjs",
+  "outputDirectory": "chat/.next",
+  "installCommand": "echo '--- ENV CHECK ---' && node -v && npm -v && which pnpm && pnpm -v && corepack enable && corepack use pnpm@10.33.0 && which pnpm && pnpm -v && corepack pnpm -v && corepack pnpm config get registry && echo '--- PRE-INSTALL DIRECTORY LISTING ---' && pwd && ls -la && echo '--- CHAT SUBDIR CONTENTS ---' && ls -la chat && echo '--- CHAT PACKAGE.JSON EXISTS? ---' && test -f chat/package.json && echo 'FOUND chat/package.json' || echo 'MISSING chat/package.json' && echo '--- RUNNING INSTALL ---' && corepack pnpm --prefix chat install && echo '--- POST-INSTALL NODE_MODULES CHECK ---' && ls -la chat/node_modules | head -20 && echo '--- INSTALL COMPLETE ---'",
+  "buildCommand": "echo '--- PRE-BUILD DIRECTORY LISTING ---' && pwd && ls -la chat && echo '--- RUNNING BUILD ---' && corepack pnpm --prefix chat build && echo '--- POST-BUILD OUTPUT CHECK ---' && ls -la chat/.next && echo '--- CHECKING FOR SERVER OUTPUT ---' && ls -la chat/.next/server 2>&1 || echo 'NO .next/server DIRECTORY FOUND' && echo '--- BUILD COMPLETE ---'"
+}
