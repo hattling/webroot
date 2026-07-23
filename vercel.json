@@ -1,5 +1,5 @@
 {
-  
+  "framework": "nextjs",
   "outputDirectory": "chat/.next",
   "installCommand": "bash vercel-install.sh",
   "buildCommand": "bash vercel-build.sh"
